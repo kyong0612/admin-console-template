@@ -8,6 +8,8 @@ export default defineConfig({
   // plugins: [react(), tsconfigPaths()],
   test: {
     environment: 'happy-dom',
+    exclude: [...configDefaults.exclude],
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
     // coverage: {
     //   reporter: ['text', 'json', 'html'],
     // },
