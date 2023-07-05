@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir src",
-    "lint:fix": "next lint --dir src --fix"
+    "lint:fix": "next lint --dir src --fix",
+    "compiler-check": "tsc --noEmit"
   },
   "dependencies": {
     "@types/node": "20.3.3",
