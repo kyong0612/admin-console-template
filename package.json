@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --dir src --fix",
-    "compiler-check": "tsc --noEmit"
+    "compiler-check": "tsc --noEmit",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/node": "20.3.3",
@@ -29,6 +30,8 @@
     "pnpm": "8.6.6"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^8.8.0"
+    "eslint-config-prettier": "^8.8.0",
+    "happy-dom": "^9.20.3",
+    "vitest": "^0.32.4"
   }
 }

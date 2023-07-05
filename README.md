@@ -39,7 +39,7 @@ cp .sample.env .env && \
 direnv allow .
 ```
 
-## optional: install vscode extensions
+### optional: install vscode extensions
 
 if you use vscode, you can install extensions below.
 
@@ -47,3 +47,9 @@ if you use vscode, you can install extensions below.
   - <https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint>
 - Prettier
   - <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
+
+## test
+
+- run `pnpm test`
+  - use vitest for unit test
+    - <https://vitest.dev/>
