@@ -17,3 +17,16 @@ curl https://get.volta.sh | bash
 ```bash
 volta install pnpm
 ```
+
+### direnv
+- install direnv
+  - see: https://github.com/direnv/direnv/blob/master/docs/installation.md
+```bash
+# if you use mac
+brew install direnv
+```
+- allow direnv
+```bash
+mv frontend/.sample.env frontend/.env && \
+direnv allow frontend/.
+```
