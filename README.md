@@ -4,11 +4,9 @@ My boilerplate for frontend
 ## Set up
 ### volta
 - install volta
+  - see: https://docs.volta.sh/guide/getting-started
 ```bash
-https://docs.volta.sh/guide/getting-started
-```
-```bash
-# for unix user
+# if your unix user
 curl https://get.volta.sh | bash
 ```
 
