@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
-    "dev:path": "pathpida --watch",
-    "build": "pathpida && next build",
+    "dev:path": "pathpida --enableStatic --ignorePath .gitignore --watch",
+    "build": "pathpida --enableStatic --ignorePath .gitignore && next build",
     "start": "next start",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --dir src --fix",
