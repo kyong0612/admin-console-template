@@ -39,6 +39,20 @@ cp .sample.env .env && \
 direnv allow .
 ```
 
+### playwright
+
+```bash
+
+pnpm dlx create-playwright
+
+```
+
+### node_modules
+
+```bash
+pnpm install
+```
+
 ### optional: install vscode extensions
 
 if you use vscode, you can install extensions below.
