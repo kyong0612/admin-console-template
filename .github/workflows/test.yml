@@ -20,6 +20,10 @@ jobs:
     - name: Install pnpm
       run: volta install pnpm
 
+    - name: Install playwright
+      run: pnpm dlx create-playwright
+
+
     # - name: Get pnpm store directory
     #   id: pnpm-cache
     #   shell: bash
@@ -37,5 +41,5 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
-    - name: Install Playwright Browsers
+    - name: Test
       run: pnpm test
