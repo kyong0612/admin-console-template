@@ -14,7 +14,7 @@
     "test": "run-p test:*",
     "test:unit": "vitest run",
     "test:e2e": "pnpm exec playwright test",
-    "update-vrt": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.35.0-jammy npx playwright test",
+    "update-vrt": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.35.0-jammy npx playwright test --update-snapshots",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
