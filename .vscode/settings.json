@@ -1,5 +1,5 @@
 {
-  "[markdown][json][javascript][typescript]": {
+  "[typescriptreact][markdown][json][javascript][typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
