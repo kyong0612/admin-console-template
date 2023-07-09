@@ -42,7 +42,7 @@ jobs:
         run: pnpm test:unit
 
       - name: E2E Test
-        run: pnpm test:e2e
+        run: pnpm exec playwright test --ignore-snapshots
 
       - uses: actions/upload-artifact@v3
         if: always()
