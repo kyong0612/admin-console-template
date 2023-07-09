@@ -12,6 +12,7 @@ test('get started link', async ({ page }) => {
 
   // snapshot
   await expect(page).toHaveScreenshot('playwright-dev.png', {
+    clip: { x: 0, y: 0, width: 1280, height: 3257 },
     fullPage: true,
   })
 
