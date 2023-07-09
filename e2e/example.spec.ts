@@ -11,7 +11,9 @@ test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/')
 
   // snapshot
-  await expect(page).toHaveScreenshot({ fullPage: true })
+  await expect(page).toHaveScreenshot('playwright-dev.png', {
+    fullPage: true,
+  })
 
   // Click the get started link.
   await page.getByRole('link', { name: 'Get started' }).click()

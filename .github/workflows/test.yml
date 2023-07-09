@@ -38,8 +38,11 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-pnpm-store-
 
-      - name: Test
-        run: pnpm test
+      - name: Unit Test
+        run: pnpm test:unit
+
+      - name: E2E Test
+        run: pnpm test:e2e
 
       - uses: actions/upload-artifact@v3
         if: always()
