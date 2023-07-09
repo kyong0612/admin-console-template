@@ -11,9 +11,8 @@ test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/')
 
   // snapshot
-  await expect(page).toHaveScreenshot('playwright-dev.png', {
-    clip: { x: 0, y: 0, width: 1280, height: 3257 },
-    fullPage: true,
+  expect(await page.screenshot()).toMatchSnapshot('vrt.png', {
+    threshold: 0.075,
   })
 
   // Click the get started link.
