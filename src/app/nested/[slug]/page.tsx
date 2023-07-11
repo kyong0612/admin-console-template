@@ -8,6 +8,9 @@ import { pagesPath } from '@/utils/$path'
 export default function Page({ params }: { params: { slug: string } }) {
   console.log('params', params)
 
+  // decode
+  params.slug = decodeURIComponent(params.slug)
+
   const { data, loading, error } = useQuery(FetchFilmWithVariablesQueryDocument, {
     variables: { id: params.slug },
   })
@@ -27,9 +30,9 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <h1>Hello, Nested Page!</h1>
-      <p>{data.film?.title}</p>
-      <p>{data.film?.openingCrawl}</p>
-      <p>{data.film?.created}</p>
+      <p>title: {data.film?.title}</p>
+      <p>openingCrawl: {data.film?.openingCrawl}</p>
+      <p>created: {data.film?.created}</p>
       <br />
       <Link href={pagesPath.$url()}>Go To Nested Page Link</Link>
     </>
