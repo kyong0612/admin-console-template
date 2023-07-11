@@ -31,12 +31,15 @@ export default function Page() {
       <div>
         <h2>Star Wars Films</h2>
         <ul>
-          {data.allFilms?.edges?.map((edge, index) => (
+          {data.allFilms?.films?.map((film, index) => (
             <li key={index}>
               <p>index: {index}</p>
-              <p>{JSON.stringify(edge)}</p>
+              <p>title: {film?.title}</p>
+              <p>openingCrawl: {film?.openingCrawl}</p>
+              <p>created: {film?.created}</p>
+              <br />
               {/* Can't use pathpida: https://nextjs.org/docs/messages/app-dir-dynamic-href */}
-              <Link href={`/nested/${index}`}>Go To Nested Page Link</Link>
+              <Link href={`/nested/${film?.id}`}>Go To Nested Page Link</Link>
               <br />
               <br />
             </li>

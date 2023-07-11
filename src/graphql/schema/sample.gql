@@ -1,16 +1,21 @@
 query allFilmsWithVariablesQuery($first: Int!) {
   allFilms(first: $first) {
-    edges {
-      node {
-        ...FilmItem
-      }
+    films {
+      id
+      title
+      openingCrawl
+      created
     }
   }
 }
 
-fragment FilmItem on Film {
-  id
-  title
-  releaseDate
-  producers
+
+
+query fetchFilmWithVariablesQuery($id: ID!) {
+  film(id: $id) {
+      id
+      title
+      openingCrawl
+      created
+  }
 }
