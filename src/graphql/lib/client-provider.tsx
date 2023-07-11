@@ -11,6 +11,7 @@ import {
 function makeClient() {
   const httpLink = new HttpLink({
     // TODO: get from env
+    // see: https://swapi-graphql.eskerda.vercel.app/
     uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
   })
 
