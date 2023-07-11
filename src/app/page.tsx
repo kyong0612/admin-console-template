@@ -38,6 +38,9 @@ export default function Page() {
             <li key={index}>
               <p>index: {index}</p>
               <p>{JSON.stringify(edge)}</p>
+              {/* Can't use pathpida: https://nextjs.org/docs/messages/app-dir-dynamic-href */}
+              <Link href={`/nested/${index}`}>Go To Nested Page Link</Link>
+              <br />
               <br />
             </li>
           ))}
