@@ -34,6 +34,7 @@ export default function Page() {
           {data.allFilms?.films?.map((film, index) => (
             <li key={index}>
               <p>index: {index}</p>
+              <p>id: {film?.id}</p>
               <p>title: {film?.title}</p>
               <p>openingCrawl: {film?.openingCrawl}</p>
               <p>created: {film?.created}</p>
