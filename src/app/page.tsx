@@ -1,9 +1,14 @@
 'use client'
 
 import { useQuery } from '@apollo/client'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { AllFilmsWithVariablesQueryDocument } from '@/graphql/generated/graphql'
+import { pagesPath } from '@/utils/$path'
 
 export default function Page() {
+  const router = useRouter()
+
   useQuery(AllFilmsWithVariablesQueryDocument, {
     variables: { first: 10 },
   })
@@ -37,6 +42,10 @@ export default function Page() {
             </li>
           ))}
         </ul>
+        <Link href={pagesPath.nested.$url()}>Go To Nested Page Link</Link>
+        <button type='button' onClick={() => router.push(pagesPath.nested.$url().pathname)}>
+          Go To Nested Page Button
+        </button>
       </div>
     </div>
   )
