@@ -1,12 +1,9 @@
 'use client'
 
 import { useQuery } from '@apollo/client'
-import { ReactElement } from 'react'
-import Layout from '@/components/layout'
 import { AllFilmsWithVariablesQueryDocument } from '@/graphql/generated/graphql'
-import { NextPageWithLayout } from '@/pages/_app'
 
-const Home: NextPageWithLayout = () => {
+export default function Page() {
   useQuery(AllFilmsWithVariablesQueryDocument, {
     variables: { first: 10 },
   })
@@ -44,9 +41,3 @@ const Home: NextPageWithLayout = () => {
     </div>
   )
 }
-
-Home.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>
-}
-
-export default Home
