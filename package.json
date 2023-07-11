@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
-    "dev:path": "pathpida --enableStatic --ignorePath .gitignore --watch",
+    "dev:path": "pathpida --enableStatic --ignorePath .gitignore --watch && prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "build": "pathpida --enableStatic --ignorePath .gitignore && next build",
     "start": "next start",
     "lint": "next lint --dir src",
