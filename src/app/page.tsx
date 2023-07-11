@@ -9,9 +9,6 @@ import { pagesPath } from '@/utils/$path'
 export default function Page() {
   const router = useRouter()
 
-  useQuery(AllFilmsWithVariablesQueryDocument, {
-    variables: { first: 10 },
-  })
   const { data, loading, error } = useQuery(AllFilmsWithVariablesQueryDocument, {
     variables: { first: 10 },
   })
