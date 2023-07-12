@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:next": "next dev",
+    "dev:next": "next dev --turbo",
     "dev:path": "pathpida --enableStatic --ignorePath .gitignore --watch && prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "build": "next build",
     "start": "next start",
