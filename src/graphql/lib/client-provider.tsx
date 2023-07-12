@@ -10,9 +10,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-    // TODO: get from env
-    // see: https://swapi-graphql.eskerda.vercel.app/
-    uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT,
   })
 
   return new NextSSRApolloClient({
