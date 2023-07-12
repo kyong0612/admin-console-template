@@ -35,7 +35,7 @@ brew install direnv
 - allow direnv
 
 ```bash
-cp .sample.env .env && \
+cp .sample.env .env \
 direnv allow .
 ```
 
