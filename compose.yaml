@@ -9,12 +9,15 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
+    container_name: frontend-template-server
     build:
       context: .
-    environment:
-      NODE_ENV: production
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: "https://swapi-graphql.netlify.app/.netlify/functions/index"
     ports:
       - 3000:3000
+    
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
