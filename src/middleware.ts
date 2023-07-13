@@ -1,32 +1,23 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  // Assume a "Cookie:nextjs=fast" header to be present on the incoming request
-  // Getting cookies from the request using the `RequestCookies` API
-  let cookie = request.cookies.get('nextjs')
-  console.log(cookie) // => { name: 'nextjs', value: 'fast', Path: '/' }
-  const allCookies = request.cookies.getAll()
-  console.log(allCookies) // => [{ name: 'nextjs', value: 'fast' }]
+export function middleware(req: NextRequest) {
+  const basicAuth = req.headers.get('authorization')
 
-  request.cookies.has('nextjs') // => true
-  request.cookies.delete('nextjs')
-  request.cookies.has('nextjs') // => false
+  if (basicAuth) {
+    const auth = basicAuth.split(' ')[1]
+    const [user, password] = atob(auth).split(':')
 
-  // Setting cookies on the response using the `ResponseCookies` API
-  const response = NextResponse.next()
-  response.cookies.set('vercel', 'fast')
-  response.cookies.set({
-    name: 'vercel',
-    value: 'fast',
-    path: '/',
+    if (user === process.env.BASIC_USER_NAME && password === process.env.BASIC_PASSWORD) {
+      return NextResponse.next()
+    }
+  }
+
+  return new Response('Auth required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Secure Area"',
+    },
   })
-  cookie = response.cookies.get('vercel')
-  console.log(cookie) // => { name: 'vercel', value: 'fast', Path: '/' }
-  // The outgoing response will have a `Set-Cookie:vercel=fast;path=/test` header.
-
-  return response
 }
 
 // See "Matching Paths" below to learn more
@@ -35,8 +26,10 @@ export const config = {
     /*
      * Match all request paths except for the ones starting with:
      * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|favicon.ico).*)',
+    '/((?!api|_next/static|_next/static/:path*|_next/image/:path*|favicon.ico).*)',
   ],
 }

@@ -46,6 +46,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY . .
 
 ARG NEXT_PUBLIC_GRAPHQL_API_ENDPOINT
+ARG BASIC_USER_NAME
+ARG BASIC_PASSWORD
 
 # Run the build script.
 RUN pnpm run build
