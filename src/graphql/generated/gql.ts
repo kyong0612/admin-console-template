@@ -1,6 +1,6 @@
 /* eslint-disable */
-import * as types from './graphql';
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import * as types from './graphql'
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core'
 
 /**
  * Map of all GraphQL operations in the project.
@@ -13,8 +13,9 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}": types.AllFilmsWithVariablesQueryDocument,
-};
+  'query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}':
+    types.AllFilmsWithVariablesQueryDocument,
+}
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -28,15 +29,18 @@ const documents = {
  * The query argument is unknown!
  * Please regenerate the types.
  */
-export function graphql(source: string): unknown;
+export function graphql(source: string): unknown
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}"): (typeof documents)["query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}"];
+export function graphql(
+  source: 'query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}',
+): (typeof documents)['query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    films {\n      id\n      title\n      openingCrawl\n      created\n    }\n  }\n}\n\nquery fetchFilmWithVariablesQuery($id: ID!) {\n  film(id: $id) {\n    id\n    title\n    openingCrawl\n    created\n  }\n}']
 
 export function graphql(source: string) {
-  return (documents as any)[source] ?? {};
+  return (documents as any)[source] ?? {}
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
+  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never
