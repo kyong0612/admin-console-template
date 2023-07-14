@@ -95,3 +95,9 @@ if you use vscode, you can install extensions below.
 - run `pnpm test:e2e`
   - use [playwright](https://playwright.dev/) for e2e test
     - playwright read e2e/*.spec.ts, and run e2e test.
+
+## Styling
+
+- use tailwindcss
+  - see: <https://tailwindcss.com/>
+  - samples: <https://flowrift.com/c/features>
