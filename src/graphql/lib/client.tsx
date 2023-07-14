@@ -9,8 +9,10 @@ export const { getClient } = registerApolloClient(() => {
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
-      // TODO: get from env
-      uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+      uri: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT,
+      // you can disable result caching here if you want to
+      // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
+      fetchOptions: { cache: 'no-store' },
     }),
   })
 })

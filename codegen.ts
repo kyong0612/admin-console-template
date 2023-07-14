@@ -3,7 +3,7 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 const config: CodegenConfig = {
   overwrite: true,
   // TODO: get from env
-  schema: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+  schema: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT,
   documents: 'src/graphql/schema/*.gql',
   generates: {
     'src/graphql/generated/': {
@@ -39,7 +39,7 @@ const config: CodegenConfig = {
     },
   },
   hooks: {
-    // afterAllFileWrite: ['pnpm lint:fix'],
+    afterAllFileWrite: ['prettier --write'],
   },
 }
 
