@@ -1,14 +1,13 @@
 import Link from 'next/link'
 import { AllFilmsWithVariablesQueryDocument } from '@/graphql/generated/graphql'
-import { getClient } from '@/graphql/lib/client'
+import { apolloClient } from '@/graphql/lib/client'
 import { pagesPath } from '@/utils/$path'
 
 export default async function Page() {
-  const { data, error } = await getClient().query({
+  const { data, error } = await apolloClient.query({
     query: AllFilmsWithVariablesQueryDocument,
     variables: { first: 10 },
   })
-
   if (error) {
     return <div>Error: {error.message}</div>
   }

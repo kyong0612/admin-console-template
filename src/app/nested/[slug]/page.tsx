@@ -1,17 +1,14 @@
-'use client'
-
-import { useQuery } from '@apollo/client'
 import Link from 'next/link'
 import { FetchFilmWithVariablesQueryDocument } from '@/graphql/generated/graphql'
+import { apolloClient } from '@/graphql/lib/client'
 import { pagesPath } from '@/utils/$path'
 
-export default function Page({ params }: { params: { slug: string } }) {
-  console.log('params', params)
-
+export default async function Page({ params }: { params: { slug: string } }) {
   // decode
   params.slug = decodeURIComponent(params.slug)
 
-  const { data, loading, error } = useQuery(FetchFilmWithVariablesQueryDocument, {
+  const { data, loading, error } = await apolloClient.query({
+    query: FetchFilmWithVariablesQueryDocument,
     variables: { id: params.slug },
   })
 
