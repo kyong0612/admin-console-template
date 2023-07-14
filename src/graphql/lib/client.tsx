@@ -5,7 +5,7 @@ import {
   NextSSRApolloClient,
 } from '@apollo/experimental-nextjs-app-support/ssr'
 
-export const { getClient } = registerApolloClient(() => {
+export const apolloClient = registerApolloClient(() => {
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
@@ -15,4 +15,4 @@ export const { getClient } = registerApolloClient(() => {
       fetchOptions: { cache: 'no-store' },
     }),
   })
-})
+}).getClient()
