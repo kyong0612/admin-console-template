@@ -43,7 +43,7 @@ direnv allow .
 
 ```bash
 
-pnpm dlx create-playwright
+npx playwright install
 
 ```
 
