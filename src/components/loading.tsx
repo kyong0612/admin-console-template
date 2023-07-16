@@ -2,6 +2,6 @@
 
 import { Spinner } from '@chakra-ui/react'
 
-export const Loading = () => {
+export const LoadingComponent = () => {
   return <Spinner />
 }
