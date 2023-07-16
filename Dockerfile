@@ -46,8 +46,6 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY . .
 
 ARG NEXT_PUBLIC_GRAPHQL_API_ENDPOINT
-ARG BASIC_USER_NAME
-ARG BASIC_PASSWORD
 
 # Run the build script.
 RUN pnpm run build
@@ -74,6 +72,11 @@ COPY --from=build /usr/src/app/.next ./.next
 
 # Expose the port that the application listens on.
 EXPOSE 3000
+
+ARG BASIC_USER_NAME
+ARG BASIC_PASSWORD
+ENV BASIC_USER_NAME=${BASIC_USER_NAME}
+ENV BASIC_PASSWORD=${BASIC_PASSWORD}
 
 # Run the application.
 CMD pnpm start
