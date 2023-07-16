@@ -14,9 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ja' className={inter.className}>
+      <body suppressHydrationWarning={true}>
       <Providers>
         <SimpleSidebar>{children}</SimpleSidebar>
       </Providers>
+      </body>
     </html>
   )
 }
