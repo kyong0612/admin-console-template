@@ -103,3 +103,5 @@ if you use vscode, you can install extensions below.
   - Chakra UI is not support RSC(Rect Server Component)
   - so, when render Chakra UI component, you need to RCC(React Client Component)
     - see: <https://chakra-ui.com/getting-started/nextjs-guide#app-directory-setup>
+  - Chakra UI Template help you
+    - see: <https://chakra-templates.dev/>
