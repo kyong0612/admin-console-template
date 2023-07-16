@@ -74,19 +74,19 @@ if you use vscode, you can install extensions below.
       - WARNING: is not run hot reload
         - can check build available
 
-## graphql
-
-### URL by pathpiad
+## URL by pathpiad
 
 - [pathpida](https://github.com/aspida/pathpida) is generator type safe path by directories.
   - when run `pnpm dev`, `utils/$path.ts` is generated and update by coding.
+
+## GraphQL
 
 ### generate by schema
 
 - [graphql-codegen](https://github.com/dotansimha/graphql-code-generator) create typescript code by graphql schema.
   - to generate, run `pnpm codegen`
 
-## test
+## Test
 
 - run `pnpm test:unit`
   - use [vitest](https://vitest.dev/) for unit test
