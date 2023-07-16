@@ -17,7 +17,7 @@ export default async function Page() {
   }
 
   return (
-    <div>
+    <>
       <h1>Hello Frontend Template </h1>
       <div>
         <h2>Star Wars Films</h2>
@@ -39,6 +39,6 @@ export default async function Page() {
         </ul>
         <Link href={pagesPath.nested.$url()}>Go To Nested Page Link</Link>
       </div>
-    </div>
+    </>
   )
 }
