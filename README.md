@@ -98,6 +98,8 @@ if you use vscode, you can install extensions below.
 
 ## Styling
 
-- use tailwindcss
-  - see: <https://tailwindcss.com/>
-  - samples: <https://flowrift.com/c/features>
+- Chakra UI
+  - see: <https://chakra-ui.com//>
+  - Chakra UI is not support RSC(Rect Server Component)
+  - so, when render Chakra UI component, you need to RCC(React Client Component)
+    - see: <https://chakra-ui.com/getting-started/nextjs-guide#app-directory-setup>
