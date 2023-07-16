@@ -14,9 +14,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: "https://swapi-graphql.netlify.app/.netlify/functions/index"
-        BASIC_USER_NAME: "user"
-        BASIC_PASSWORD: "password"
+        NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: https://swapi-graphql.netlify.app/.netlify/functions/index
+        BASIC_USER_NAME: user
+        BASIC_PASSWORD: password
     ports:
       - 3000:3000
     
