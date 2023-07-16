@@ -8,6 +8,7 @@
     "dev:path": "pathpida --enableStatic --ignorePath .gitignore --watch && prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "build": "next build",
     "start": "next start",
+    "tsc": "tsc",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --fix --dir src && prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "compiler-check": "tsc --noEmit",
