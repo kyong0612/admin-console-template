@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'frontend-template',
-  description: 'my frontend boilerplate',
+  description: 'my frontend boilerplate  ',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
