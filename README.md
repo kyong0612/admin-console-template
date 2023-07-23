@@ -1,6 +1,6 @@
-# frontend-template
+# admin-frontend-template
 
-My boilerplate for frontend
+My boilerplate for admin frontend
 
 ## Set up
 
