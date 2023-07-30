@@ -13,9 +13,10 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
+  IconButton,
 } from '@chakra-ui/react'
-import React, { ReactNode, ReactText } from 'react'
-import { FiHome, FiTrendingUp, FiCompass, FiStar, FiSettings, FiMenu } from 'react-icons/fi'
+import React, { ReactNode } from 'react'
+import { FiMenu, FiUsers } from 'react-icons/fi'
 import { IconType } from 'react-icons/lib/cjs/iconBase'
 
 interface LinkItemProps {
@@ -23,11 +24,14 @@ interface LinkItemProps {
   icon: IconType
   href: string
 }
+
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome, href: '/' },
   { name: 'Nested', icon: FiCompass, href: '/nested' },
   { name: 'Settings', icon: FiSettings, href: '/settings' },
 ]
+
+const title = 'Admin Console Boilerplate'
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -47,6 +51,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
+      <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p='4'>
         {children}
       </Box>
@@ -69,9 +74,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h='full'
       {...rest}
     >
-      <Flex h='20' alignItems='center' mx='8' justifyContent='space-between'>
-        <Text fontSize='2xl' fontFamily='monospace' fontWeight='bold'>
-          Frontend Template
+      <Flex h='20' alignItems='center' mx='6' justifyContent='space-between'>
+        <Text fontSize='md' fontFamily='monospace' fontWeight='bold'>
+          <a href='/'> {title}</a>
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
@@ -118,5 +123,30 @@ const NavItem = ({ icon, href, children, ...rest }: NavItemProps) => {
         {children}
       </Flex>
     </Link>
+  )
+}
+
+interface MobileProps extends FlexProps {
+  onOpen: () => void
+}
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 24 }}
+      height='20'
+      alignItems='center'
+      bg={useColorModeValue('white', 'gray.900')}
+      borderBottomWidth='1px'
+      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+      justifyContent='flex-start'
+      {...rest}
+    >
+      <IconButton variant='outline' onClick={onOpen} aria-label='open menu' icon={<FiMenu />} />
+
+      <Text fontSize='2xl' ml='8' fontFamily='monospace' fontWeight='bold'>
+        {title}
+      </Text>
+    </Flex>
   )
 }
