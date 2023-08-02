@@ -16,7 +16,7 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import React, { ReactNode, ReactText } from 'react'
-import { FiCompass, FiHome, FiMenu, FiSettings, FiUsers } from 'react-icons/fi'
+import { FiCompass, FiHome, FiMenu, FiSettings } from 'react-icons/fi'
 import { IconType } from 'react-icons/lib/cjs/iconBase'
 
 interface LinkItemProps {
