@@ -1,7 +1,6 @@
 'use client'
 
 import { ApolloError } from '@apollo/client/core'
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react'
 import { GraphQLError } from 'graphql'
 
 type Props = {
@@ -13,29 +12,21 @@ export const ErrorAlertComponent = ({ error }: Props) => {
 
   if (error instanceof ApolloError) {
     return (
-      <Alert status='error'>
-        <AlertIcon />
-        <AlertTitle>error.message</AlertTitle>
-        <AlertDescription>
-          {error.graphQLErrors.map(({ message }, i) => (
-            <span key={i}>{message}</span>
-          ))}
-        </AlertDescription>
-      </Alert>
+      <>
+        {error.graphQLErrors.map(({ message }, i) => (
+          <span key={i}>{message}</span>
+        ))}
+      </>
     )
   }
 
   if (error instanceof Array) {
     return (
-      <Alert status='error'>
-        <AlertIcon />
-        <AlertTitle>エラーが発生しました</AlertTitle>
-        <AlertDescription>
-          {error.map(({ message }, i) => (
-            <span key={i}>{message}</span>
-          ))}
-        </AlertDescription>
-      </Alert>
+      <>
+        {error.map(({ message }, i) => (
+          <span key={i}>{message}</span>
+        ))}
+      </>
     )
   }
 }

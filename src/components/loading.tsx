@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@chakra-ui/react'
+import { Spinner } from '@nextui-org/react'
 
 export const LoadingComponent = () => {
   return <Spinner />

@@ -1,152 +1,38 @@
 'use client'
 
-import {
-  Box,
-  CloseButton,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Link,
-  Drawer,
-  DrawerContent,
-  Text,
-  useDisclosure,
-  BoxProps,
-  FlexProps,
-  IconButton,
-} from '@chakra-ui/react'
-import React, { ReactNode, ReactText } from 'react'
-import { FiCompass, FiHome, FiMenu, FiSettings } from 'react-icons/fi'
-import { IconType } from 'react-icons/lib/cjs/iconBase'
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from '@nextui-org/react'
+import React, { ReactNode } from 'react'
 
-interface LinkItemProps {
-  name: string
-  icon: IconType
-  href: string
-}
-
-const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome, href: '/' },
-  { name: 'Nested', icon: FiCompass, href: '/nested' },
-  { name: 'Settings', icon: FiSettings, href: '/settings' },
-]
-
-const title = 'Admin Console Boilerplate'
-
-export default function SimpleSidebar({ children }: { children: ReactNode }) {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+export default function NavigateBar({ children }: { children: ReactNode }) {
   return (
-    <Box minH='100vh' bg={useColorModeValue('gray.100', 'gray.900')}>
-      <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement='left'
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size='full'
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
-      <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p='4'>
-        {children}
-      </Box>
-    </Box>
-  )
-}
-
-interface SidebarProps extends BoxProps {
-  onClose: () => void
-}
-
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  return (
-    <Box
-      bg={useColorModeValue('white', 'gray.900')}
-      borderRight='1px'
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos='fixed'
-      h='full'
-      {...rest}
-    >
-      <Flex h='20' alignItems='center' mx='6' justifyContent='space-between'>
-        <Text fontSize='md' fontFamily='monospace' fontWeight='bold'>
-          <a href='/'> {title}</a>
-        </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon} href={link.href}>
-          {link.name}
-        </NavItem>
-      ))}
-    </Box>
-  )
-}
-
-interface NavItemProps extends FlexProps {
-  icon: IconType
-  href: string
-  children: ReactText
-}
-const NavItem = ({ icon, href, children, ...rest }: NavItemProps) => {
-  return (
-    <Link href={href} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
-      <Flex
-        align='center'
-        p='4'
-        mx='4'
-        borderRadius='lg'
-        role='group'
-        cursor='pointer'
-        _hover={{
-          bg: 'cyan.400',
-          color: 'white',
-        }}
-        {...rest}
-      >
-        {icon && (
-          <Icon
-            mr='4'
-            fontSize='16'
-            _groupHover={{
-              color: 'white',
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
-  )
-}
-
-interface MobileProps extends FlexProps {
-  onOpen: () => void
-}
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-  return (
-    <Flex
-      ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 24 }}
-      height='20'
-      alignItems='center'
-      bg={useColorModeValue('white', 'gray.900')}
-      borderBottomWidth='1px'
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-      justifyContent='flex-start'
-      {...rest}
-    >
-      <IconButton variant='outline' onClick={onOpen} aria-label='open menu' icon={<FiMenu />} />
-
-      <Text fontSize='2xl' ml='8' fontFamily='monospace' fontWeight='bold'>
-        {title}
-      </Text>
-    </Flex>
+    <Navbar>
+      <NavbarBrand>
+        <p className='font-bold text-inherit'>
+          <a href='/'>Admin Console Boilerplate</a>
+        </p>
+      </NavbarBrand>
+      <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+        <NavbarItem>
+          <Link color='foreground' href='/nested'>
+            Nested
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href='#' aria-current='page'>
+            Settings
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify='end'>
+        <NavbarItem className='hidden lg:flex'>
+          <Link href='#'>Login</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color='primary' href='#' variant='flat'>
+            Sign Up
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
+    </Navbar>
   )
 }
