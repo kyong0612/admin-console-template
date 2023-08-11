@@ -1,8 +1,8 @@
 import '@/globals.css'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import NavigateBar from './navbar'
 import { Providers } from './providers'
-import NavigateBar from './sidebar'
 
 export const metadata: Metadata = {
   title: 'frontend-template',
