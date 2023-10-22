@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { FetchFilmWithVariablesQueryDocument } from '@/graphql/generated/graphql'
 import { apolloClient } from '@/graphql/lib/client'
-import { pagesPath } from '@/utils/$path'
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // decode
@@ -31,7 +30,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <p>openingCrawl: {data.film?.openingCrawl}</p>
       <p>created: {data.film?.created}</p>
       <br />
-      <Link href={pagesPath.$url()}>Go To Nested Page Link</Link>
+      <Link href={'/'}>Go To Nested Page Link</Link>
     </>
   )
 }
