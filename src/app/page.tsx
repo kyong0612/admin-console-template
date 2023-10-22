@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { AllFilmsWithVariablesQueryDocument } from '@/graphql/generated/graphql'
 import { apolloClient } from '@/graphql/lib/client'
-import { pagesPath } from '@/utils/$path'
 
 export default async function Page() {
   const { data, error } = await apolloClient.query({
@@ -37,7 +36,7 @@ export default async function Page() {
             </li>
           ))}
         </ul>
-        <Link href={pagesPath.nested.$url()}>Go To Nested Page Link</Link>
+        <Link href={'/nested'}>Go To Nested Page Link</Link>
       </div>
     </>
   )

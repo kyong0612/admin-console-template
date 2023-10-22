@@ -9,13 +9,11 @@ query allFilmsWithVariablesQuery($first: Int!) {
   }
 }
 
-
-
 query fetchFilmWithVariablesQuery($id: ID!) {
   film(id: $id) {
-      id
-      title
-      openingCrawl
-      created
+    id
+    title
+    openingCrawl
+    created
   }
 }
