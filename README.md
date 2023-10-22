@@ -74,11 +74,6 @@ if you use vscode, you can install extensions below.
       - WARNING: is not run hot reload
         - can check build available
 
-## URL by pathpiad
-
-- [pathpida](https://github.com/aspida/pathpida) is generator type safe path by directories.
-  - when run `pnpm dev`, `utils/$path.ts` is generated and update by coding.
-
 ## GraphQL
 
 ### generate by schema
