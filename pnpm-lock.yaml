@@ -92,8 +92,8 @@ devDependencies:
     specifier: ^4.1.5
     version: 4.1.5
   pathpida:
-    specifier: ^0.20.1
-    version: 0.20.1
+    specifier: ^0.22.0
+    version: 0.22.0
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -1911,6 +1911,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -6226,8 +6227,8 @@ packages:
     resolution: {integrity: sha512-d+RQGp0MAYTIaDBIMmOfMwz3E+LOZnxx1HZd5R18mmCZY0QBlK0LDZfPc8FW8Ed2DlvsuE6PRjroDY+wg4+j/Q==}
     dev: true
 
-  /pathpida@0.20.1:
-    resolution: {integrity: sha512-kHP27AIgeS3AqPTug9FLwQ/VpPkwjMv+TgMgpePeLKj/gMyY6h8/gRtAsWjTwzDV92LtHnbMSy3V12jQ/xVBeg==}
+  /pathpida@0.22.0:
+    resolution: {integrity: sha512-aoBBy2e9Ov2Nd/ryeIX8Cn6kNqgblYWlDDLArM3WEctRwlOvqNn4D9WJOTpB+EVr5MkQNAiwNoi7iYSGDNLZ0A==}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
