@@ -1,10 +1,10 @@
 name: Lints
 on:
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
-  test:
+  lint:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -29,3 +29,6 @@ jobs:
 
       - name: Check for changes
         run: git diff --exit-code
+      
+      - name: Build
+        run: pnpm compose:build
